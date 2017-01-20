@@ -1,0 +1,17 @@
+<div class="container">
+ <div class="wrapper col-md-8 col-md-offset-2 col-sm-10">
+<p id ="notice"><%= notice %></p>
+<h1>つぶやき一覧</h1>
+ <%= link_to "ツブヤク", new_record_path %>
+<% @records.each do |record| %>
+<div class="row">
+ <h4><strong><%= record.content %></strong></h4>
+<%= link_to "編集",edit_record_path(record.id), class: 'btn btn-success'%>
+<%= link_to "消す",record_path(record.id),method: :delete, data: {confirm:'本当に削除してよろしいですか？'},class: 'btn btn-danger' %>
+</div>
+<% end %>
+<div id = "page-top-btn" class = "page-top-btn">
+    <p><a class = "move-page-top" id = "move-page-top">▲</a></p>
+</div>
+</div>
+</div>
